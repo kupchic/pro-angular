@@ -8,8 +8,9 @@ on:
 
 permissions:
   actions: read
-  contents: read
+  contents: write
   pages: write
+
 
 jobs:
   main:
@@ -30,10 +31,13 @@ jobs:
       - name: Lint
         run: npm run lint:errors
 
+      - name: Build Pages
+        run: npm run build:pages
+
       - name: Deploy pages
-        run: |
-          git config --global user.email "github-actions@github.com"
-          git config --global user.name "GitHub Actions"
-          npm run deploy-pages
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Use the GitHub-provided token for authentication
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          folder: ./dist/pro-angular/browser
+          branch: gh-pages
+          single-commit: true
