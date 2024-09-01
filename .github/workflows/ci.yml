@@ -29,5 +29,5 @@ jobs:
       - name: Lint
         run: npm run lint:errors
 
-      - name: Build
+      - name: Deploy pages
         run: npm run deploy-pages
