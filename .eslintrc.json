@@ -1,0 +1,69 @@
+{
+  "root": true,
+  "ignorePatterns": ["!**/*"],
+  "plugins": ["@nx", "@typescript-eslint/eslint-plugin", "prettier"],
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "rules": {
+    "prettier/prettier": "error",
+    "no-console": ["error", { "allow": ["warn", "error"] }],
+    "linebreak-style": ["error", "unix"]
+  },
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "extends": ["plugin:@nx/angular", "plugin:@angular-eslint/template/process-inline-templates"],
+      "rules": {
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "type": "attribute",
+            "prefix": "app",
+            "style": "camelCase"
+          }
+        ],
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "type": "element",
+            "prefix": "app",
+            "style": "kebab-case"
+          }
+        ],
+        "@typescript-eslint/naming-convention": [
+          "error",
+          {
+            "selector": ["typeLike"],
+            "format": ["PascalCase"]
+          },
+          {
+            "selector": "function",
+            "format": ["camelCase"]
+          },
+          {
+            "selector": "parameter",
+            "modifiers": ["unused"],
+            "format": ["camelCase"],
+            "leadingUnderscore": "allow"
+          },
+          {
+            "selector": "enumMember",
+            "format": ["UPPER_CASE"]
+          },
+          {
+            "selector": "variableLike",
+            "format": ["UPPER_CASE", "camelCase"]
+          }
+        ]
+      }
+    },
+    {
+      "files": ["*.html"],
+      "extends": ["plugin:@nx/angular-template"],
+      "rules": {}
+    }
+  ]
+}
