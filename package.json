@@ -5,6 +5,7 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
+    "deploy-pages": "nx build --prod --base-href=\"https://kupchic.github.io/pro-angular/\" && npx angular-cli-ghpages --dir=dist/pro-angular/browser",
     "ssr": "node dist/pro-angular/server/server.mjs",
     "lint:errors": "nx run-many --target=lint --all --quiet && npm run prettier-check",
     "prettier": "prettier --write \"**/*.{js,ts,json,html,scss,css}\"",
@@ -54,6 +55,7 @@
     "@typescript-eslint/eslint-plugin": "^7.16.0",
     "@typescript-eslint/parser": "^7.16.0",
     "@typescript-eslint/utils": "^7.16.0",
+    "angular-cli-ghpages": "^2.0.1",
     "eslint": "~8.57.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "5.1.3",
