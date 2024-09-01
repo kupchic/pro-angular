@@ -31,3 +31,5 @@ jobs:
 
       - name: Deploy pages
         run: npm run deploy-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Use the GitHub-provided token for authentication
