@@ -5,7 +5,7 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
-    "deploy-pages": "nx build --prod --base-href=\"https://kupchic.github.io/pro-angular/\" && gh-pages -d dist/pro-angular/browser",
+    "deploy-pages": "nx build --prod --base-href=\"https://kupchic.github.io/pro-angular/\" && ngh --dir=dist/pro-angular/browser --no-silent",
     "ssr": "node dist/pro-angular/server/server.mjs",
     "lint:errors": "nx run-many --target=lint --all --quiet && npm run prettier-check",
     "prettier": "prettier --write \"**/*.{js,ts,json,html,scss,css}\"",
