@@ -31,8 +31,8 @@ jobs:
 
       - name: Deploy pages
         run: |
-          git config --global user.email "github-actions@github.com"
-          git config --global user.name "GitHub Actions"
+          git config --global user.email "kup4enya1999@gmail.com"
+          git config --global user.name "Aliaksandr Kupchenia (action bot)"
           npm run deploy-pages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Use the GitHub-provided token for authentication
